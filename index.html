@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacacional Aris Eduardo</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+
+<div class="hero">
+  <img src="img/hero.jpg.jpg">
+  <div class="overlay"></div>
+  <div class="hero-text">
+    <h1>Vacacional Aris Eduardo</h1>
+    <p>Reserva fácil y segura</p>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="info">
+💳 Reserva con 50% y paga al llegar
+</div>
+
+<h3>Fechas</h3>
+<input type="text" id="fecha">
+
+<h3>Habitaciones</h3>
+
+<div class="card">
+  <img src="img/hero1.jpg.jpg">
+  <input type="number" id="s" placeholder="Sencillas">
+</div>
+
+<div class="card">
+  <img src="img/hero12.jpg.jpg">
+  <input type="number" id="d" placeholder="Dobles aire (4 personas)">
+</div>
+
+<div class="card">
+  <img src="img/hero2.jpg.jpg">
+  <input type="number" id="a" placeholder="Cama aire">
+</div>
+
+<div class="card">
+  <img src="img/hero3.jpg.jpg">
+  <input type="number" id="t" placeholder="Triples (6 personas)">
+</div>
+
+<input type="number" id="personas" placeholder="Personas">
+
+<button onclick="calcular()">Ver precio</button>
+
+<button id="btnConfirmar" onclick="confirmar()" style="display:none;">
+Confirmar reserva
+</button>
+
+<div id="resultado"></div>
+
+<!-- WHATSAPP BURBUJA -->
+<a id="wa" class="whatsapp" target="_blank">WhatsApp</a>
+
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
