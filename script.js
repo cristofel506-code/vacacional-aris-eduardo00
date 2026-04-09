@@ -30,27 +30,13 @@ flatpickr("#fecha", {
 });
 
 // CALCULAR
-window.calcular = function(){
+let wa = document.getElementById("wa");
+wa.style.display = "block";
 
-let s = +document.getElementById("s").value || 0;
-let d = +document.getElementById("d").value || 0;
-let a = +document.getElementById("a").value || 0;
-let t = +document.getElementById("t").value || 0;
-let p = +document.getElementById("personas").value || 0;
+let numero = "8092823624";
+let mensaje = "Hola quiero reservar información";
 
-if(noches === 0) return alert("Selecciona fechas");
-
-let capacidad = (s*2)+(d*4)+(a*2)+(t*6);
-
-if(p > capacidad) return alert("No hay capacidad suficiente");
-
-let total = (s*1500)+(d*2500)+(a*2000)+(t*2800);
-total = total * noches;
-
-let adelanto = total * 0.5;
-
-datos = {s,d,a,t,p,noches,total,adelanto};
-
+wa.href = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 // mostrar
 document.getElementById("resultado").innerHTML =
 `Total: RD$ ${total}<br>Adelanto: RD$ ${adelanto}`;
@@ -72,6 +58,7 @@ window.confirmar = async function(){
 
 if(!datos) return;
 
+// guardar en firebase
 await addDoc(collection(db,"reservas"),{
 ...datos,
 fecha: new Date().toLocaleString()
@@ -89,7 +76,8 @@ Total: RD$ ${datos.total}
 Adelanto: ${datos.adelanto}
 `;
 
+// 🔥 IMPORTANTE: usar location.href (NO window.open)
 let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
-window.open(url, "_blank");
+window.location.href = url;
 };
